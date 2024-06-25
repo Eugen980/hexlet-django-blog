@@ -21,7 +21,7 @@ from hexlet_django_blog import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', views.index),
+    path('', views.HomePageView.as_view(), name='home'),
     path('about/', views.about),
     path('articles/', include('hexlet_django_blog.article.urls'), name='articles'),
 ]
