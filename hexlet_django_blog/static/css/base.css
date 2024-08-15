@@ -1,0 +1,35 @@
+body {
+    background-color: rgb(162, 169, 238);
+}
+
+nav ul {
+    list-style-type: none;
+    font-size: 22px;
+
+    margin: 0;
+    padding-left: 0;
+}
+
+nav li {
+    display: inline-block;
+}
+
+
+nav a {
+    display: block;
+    text-decoration: none;
+    margin: 0 5px 2px;
+
+}
+
+.sub {
+    float: right;
+    margin-top: -20px;
+}
+
+main {
+    margin: 10%;
+    height: 100hv;
+    width: 50vh;
+    text-align: center;
+}

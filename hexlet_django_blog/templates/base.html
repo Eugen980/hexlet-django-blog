@@ -1,16 +1,25 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     <title>{% block title %}{% endblock %}</title>
 </head>
 <body>
     <nav>
-        <a href="/"><p>Главная</p></a>
-        <a href="/about""><p>О сайте</p></a>
-        <a href="/articles"><p>Что-то ещё</p></a>
+        <ul>
+            <li><a href="/">Главная</a></li>
+            <li><a href="/about">О сайте</a></li>
+            <li><a href="/articles">Статьи</a></li>
+            <li><a href="{% url 'create_article' %}">Создать статью</a></li>
+        </ul>
+        <form class="sub" action="#">
+            <input type="submit" value="Кнопка">
+        </form>
     </nav>
+    
     <main>
         {% block content %}
         {% endblock %}
