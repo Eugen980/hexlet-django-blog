@@ -6,7 +6,7 @@ from .models import Article
 from .forms import ArticleForm
 
 
-class IndexView(View):  
+class IndexView(View):
 
     def get(self, request, *args, **kwargs):
         articles = Article.objects.all()[:15]
@@ -22,7 +22,7 @@ class ArticleView(View):
         return render(request, 'articles/show.html', context={
             'article': article,
         })
-  
+
 
 class ArticleCreateView(View):
     template_name = 'articles/create.html'
@@ -38,7 +38,7 @@ class ArticleCreateView(View):
             return redirect(reverse('articles_index'))
         else:
             return render(request, self.template_name, {'form': form})
-        
+
 
 class ArticleFormEditView(View):
 
@@ -47,7 +47,7 @@ class ArticleFormEditView(View):
         article = Article.objects.get(id=article_id)
         form = ArticleForm(instance=article)
         return render(request, 'articles/update.html', {'form': form, 'article_id':article_id})
-    
+
     def post(self, request, *args, **kwargs):
         article_id = kwargs.get('id')
         article = Article.objects.get(id=article_id)
@@ -57,7 +57,7 @@ class ArticleFormEditView(View):
             return redirect('articles_index')
 
         return render(request, 'articles/update.html', {'form': form, 'article_id':article_id})
-    
+
 
 class ArticleFormDeleteView(View):
 
